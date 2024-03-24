@@ -1,0 +1,266 @@
+
+Polling.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  0000018a  0000021e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000018a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000004  00800102  00800102  00000220  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000220  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000250  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  00000290  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000075f  00000000  00000000  000002b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006b5  00000000  00000000  00000a17  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000002d7  00000000  00000000  000010cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000034  00000000  00000000  000013a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003af  00000000  00000000  000013d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001787  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea e8       	ldi	r30, 0x8A	; 138
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 30       	cpi	r26, 0x02	; 2
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a2 e0       	ldi	r26, 0x02	; 2
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a6 30       	cpi	r26, 0x06	; 6
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 59 00 	call	0xb2	; 0xb2 <main>
+  9e:	0c 94 c3 00 	jmp	0x186	; 0x186 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <setupPort>:
+volatile int on = PINB1;
+volatile int off = PINB0;
+volatile int blink = 0;
+
+void setupPort(){
+	DDRD=0x00;					//PORTD als input PD2 zu SW1 und PD3 zu SW2
+  a6:	1a b8       	out	0x0a, r1	; 10
+	PORTD=0xff;
+  a8:	8f ef       	ldi	r24, 0xFF	; 255
+  aa:	8b b9       	out	0x0b, r24	; 11
+	
+	DDRB=0xff;					//PORTB als output PB0 zu D0 unf PB1 zu D9
+  ac:	84 b9       	out	0x04, r24	; 4
+	PORTB=0x00;
+  ae:	15 b8       	out	0x05, r1	; 5
+  b0:	08 95       	ret
+
+000000b2 <main>:
+}
+int main(void)
+{
+	setupPort();
+  b2:	0e 94 53 00 	call	0xa6	; 0xa6 <setupPort>
+				blink^=(1<<0);
+				}else{
+				PINB= (1<<PINB0);
+			}
+			on = PINB0;
+			off = PINB1;
+  b6:	81 e0       	ldi	r24, 0x01	; 1
+  b8:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		if( !( PIND & (1<<PIND2) ) ){			//SW0 gedrückt
+			if(on==PINB0){
+				blink^=(1<<0);
+				}else{
+				PINB= (1<<PINB0);
+  ba:	61 e0       	ldi	r22, 0x01	; 1
+		
+		if( !( PIND & (1<<PIND3) ) ){			//SW1 gedrückt
+			if(on==PINB1){
+				blink^=(1<<0);
+			}else{
+				PINB= (1<<PINB1);
+  bc:	52 e0       	ldi	r21, 0x02	; 2
+	setupPort();
+	
+	
+	while (1)
+	{
+		if( !( PIND & (1<<PIND2) ) ){			//SW0 gedrückt
+  be:	4a 99       	sbic	0x09, 2	; 9
+  c0:	1a c0       	rjmp	.+52     	; 0xf6 <main+0x44>
+			if(on==PINB0){
+  c2:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+  c6:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+  ca:	23 2b       	or	r18, r19
+  cc:	59 f4       	brne	.+22     	; 0xe4 <main+0x32>
+				blink^=(1<<0);
+  ce:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <__data_end>
+  d2:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__data_end+0x1>
+  d6:	41 e0       	ldi	r20, 0x01	; 1
+  d8:	24 27       	eor	r18, r20
+  da:	30 93 03 01 	sts	0x0103, r19	; 0x800103 <__data_end+0x1>
+  de:	20 93 02 01 	sts	0x0102, r18	; 0x800102 <__data_end>
+  e2:	01 c0       	rjmp	.+2      	; 0xe6 <main+0x34>
+				}else{
+				PINB= (1<<PINB0);
+  e4:	63 b9       	out	0x03, r22	; 3
+			}
+			on = PINB0;
+  e6:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__data_start+0x1>
+  ea:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_start>
+			off = PINB1;
+  ee:	90 93 05 01 	sts	0x0105, r25	; 0x800105 <off+0x1>
+  f2:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <off>
+			
+		}
+		
+		if( !( PIND & (1<<PIND3) ) ){			//SW1 gedrückt
+  f6:	4b 99       	sbic	0x09, 3	; 9
+  f8:	1b c0       	rjmp	.+54     	; 0x130 <main+0x7e>
+			if(on==PINB1){
+  fa:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+  fe:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+ 102:	21 30       	cpi	r18, 0x01	; 1
+ 104:	31 05       	cpc	r19, r1
+ 106:	59 f4       	brne	.+22     	; 0x11e <main+0x6c>
+				blink^=(1<<0);
+ 108:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <__data_end>
+ 10c:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__data_end+0x1>
+ 110:	e1 e0       	ldi	r30, 0x01	; 1
+ 112:	2e 27       	eor	r18, r30
+ 114:	30 93 03 01 	sts	0x0103, r19	; 0x800103 <__data_end+0x1>
+ 118:	20 93 02 01 	sts	0x0102, r18	; 0x800102 <__data_end>
+ 11c:	01 c0       	rjmp	.+2      	; 0x120 <main+0x6e>
+			}else{
+				PINB= (1<<PINB1);
+ 11e:	53 b9       	out	0x03, r21	; 3
+			}
+			on = PINB1;
+ 120:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+ 124:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+			off = PINB0;
+ 128:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <off+0x1>
+ 12c:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <off>
+		}
+		
+		
+		if(blink==1){
+ 130:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <__data_end>
+ 134:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__data_end+0x1>
+ 138:	21 30       	cpi	r18, 0x01	; 1
+ 13a:	31 05       	cpc	r19, r1
+ 13c:	79 f4       	brne	.+30     	; 0x15c <main+0xaa>
+			//PORTB &= ~(1 << off);			//LED ausschalten
+			PORTB ^=(1<<on);				//LED blinkt
+ 13e:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+ 142:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+ 146:	45 b1       	in	r20, 0x05	; 5
+ 148:	fc 01       	movw	r30, r24
+ 14a:	02 c0       	rjmp	.+4      	; 0x150 <main+0x9e>
+ 14c:	ee 0f       	add	r30, r30
+ 14e:	ff 1f       	adc	r31, r31
+ 150:	2a 95       	dec	r18
+ 152:	e2 f7       	brpl	.-8      	; 0x14c <main+0x9a>
+ 154:	9f 01       	movw	r18, r30
+ 156:	24 27       	eor	r18, r20
+ 158:	25 b9       	out	0x05, r18	; 5
+ 15a:	0b c0       	rjmp	.+22     	; 0x172 <main+0xc0>
+			
+		}else{
+			//PORTB &= ~(1 << off);			//LED ausschalten
+			PORTB = (1<<on);				//LED einschalten
+ 15c:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+ 160:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+ 164:	fc 01       	movw	r30, r24
+ 166:	02 c0       	rjmp	.+4      	; 0x16c <main+0xba>
+ 168:	ee 0f       	add	r30, r30
+ 16a:	ff 1f       	adc	r31, r31
+ 16c:	2a 95       	dec	r18
+ 16e:	e2 f7       	brpl	.-8      	; 0x168 <main+0xb6>
+ 170:	e5 b9       	out	0x05, r30	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 172:	ff ef       	ldi	r31, 0xFF	; 255
+ 174:	23 ec       	ldi	r18, 0xC3	; 195
+ 176:	39 e0       	ldi	r19, 0x09	; 9
+ 178:	f1 50       	subi	r31, 0x01	; 1
+ 17a:	20 40       	sbci	r18, 0x00	; 0
+ 17c:	30 40       	sbci	r19, 0x00	; 0
+ 17e:	e1 f7       	brne	.-8      	; 0x178 <main+0xc6>
+ 180:	00 c0       	rjmp	.+0      	; 0x182 <main+0xd0>
+ 182:	00 00       	nop
+ 184:	9c cf       	rjmp	.-200    	; 0xbe <main+0xc>
+
+00000186 <_exit>:
+ 186:	f8 94       	cli
+
+00000188 <__stop_program>:
+ 188:	ff cf       	rjmp	.-2      	; 0x188 <__stop_program>
