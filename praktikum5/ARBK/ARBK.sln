@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ARBK", "ARBK\ARBK.vcxproj", "{D282E7F2-3975-44D8-99BC-3A01DC943103}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Debug|x64.ActiveCfg = Debug|x64
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Debug|x64.Build.0 = Debug|x64
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Debug|x86.ActiveCfg = Debug|Win32
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Debug|x86.Build.0 = Debug|Win32
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Release|x64.ActiveCfg = Release|x64
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Release|x64.Build.0 = Release|x64
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Release|x86.ActiveCfg = Release|Win32
+		{D282E7F2-3975-44D8-99BC-3A01DC943103}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD4BF354-E556-4088-A4D4-2DB8B3AD42AD}
+	EndGlobalSection
+EndGlobal
